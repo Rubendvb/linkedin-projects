@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 function App() {
   const [pontos, setPontos] = useState(0)
+  const [respostaErrada, setRespostaErrada] = useState(0)
   const [resposta, setResposta] = useState(false)
   const [perguntaIndex, setPerguntaIndex] = useState(0)
 
@@ -33,6 +34,8 @@ function App() {
   const atualizaPontos = (resposta) => {
     if (resposta === perguntaAtual.resposta) {
       setPontos(pontos + 1)
+    } else {
+      setRespostaErrada(respostaErrada + 1)
     }
   }
 
@@ -52,6 +55,10 @@ function App() {
 
       <p>
         Pontos: <strong>{pontos}</strong>
+      </p>
+      <p>
+        Resposta{`${respostaErrada > 1 ? 's' : ''}`} errada
+        {`${respostaErrada > 1 ? 's' : ''}`}: <strong>{respostaErrada}</strong>
       </p>
 
       <div className="col-sm-8">
