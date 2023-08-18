@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-      <div className={`text-center pt-5`}>
+      <div className={`text-center pt-5 ${count == 0 ? 'text-danger' : ''}`}>
         <h1 className="display-2">{count}</h1>
 
         {runningTimer ? (
